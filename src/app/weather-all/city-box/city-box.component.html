@@ -1,4 +1,4 @@
-<div class="city-card">
+<div *ngIf="city" class="city-card">
   <h2 class="city-card__header">Get the today's weather for your city!</h2>
   <div class="city-card__box">
     <div class="city-card__updated-label">
@@ -38,9 +38,11 @@
     </div>
     <div class="city-card__date-time">
       <span class="city-card__clock">
+        <span>{{date | date:'HH:mm' }}</span>
 <!--        <app-clock></app-clock>-->
       </span>
       <span class="city-card__date">
+        <span>{{date | date:'mediumDate'}}</span>
 <!--        <app-date></app-date>-->
       </span>
     </div>

@@ -15,4 +15,9 @@ export class GeneralserviceService {
   GetTime(num: number) {
     return new Date(num).toLocaleTimeString();
   }
+
+  GetCurrent(){
+    return new Date();
+  }
+
 }

@@ -1,9 +1,10 @@
 import {AfterContentChecked, Component, DoCheck, Input, OnDestroy, OnInit} from '@angular/core';
 import {WhetherService} from "./whether.service";
 import {Weather} from "./weather.model";
-import {Subscription, take} from "rxjs";
+import {interval, Subscription, switchMap, take, timer} from "rxjs";
 import {SearchService} from "../weather-search-bar/search.service";
 import {GeneralserviceService} from "../shared/generalservice.service";
+
 
 @Component({
   selector: 'app-weather-all',
@@ -13,10 +14,12 @@ import {GeneralserviceService} from "../shared/generalservice.service";
 export class WeatherAllComponent implements OnInit, OnDestroy {
   private citySubscription: Subscription;
   private _weatherSubscription: Subscription;
+  private updateSubscription: Subscription;
   weather: any;
   cityResult: string;
   // @ts-ignore
   weatherModelObject: Weather = new Weather();
+
 
 
   constructor(
@@ -36,20 +39,32 @@ export class WeatherAllComponent implements OnInit, OnDestroy {
     //   }
     // );
 
+    // @ts-ignore
+
+
+
+    this.updateSubscription = timer(0, 5000).pipe(
+      switchMap(() =>  this.weatherService.getWeatherWithCity(this.cityResult))
+    ).subscribe(result =>
+      console.log(result)
+    );
+
+
+
     this.citySubscription = this.searchService.searchResult.subscribe(
       res => {this.cityResult = res;
         if(this.cityResult !== null && this.cityResult !== undefined){
-          console.log(this.cityResult, 'r');
           this._weatherSubscription = this.weatherService.getWeatherWithCity(this.cityResult).subscribe(weather => {
             this.weather = weather;
-            console.log(this.weather);
             this.weatherService.adjustResponseData(this.weatherModelObject,this.weather);
-            console.log(this.weatherModelObject);
 
           });
         }
       }
     )
+
+
+
   }
 
 
