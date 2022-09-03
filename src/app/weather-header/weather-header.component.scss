@@ -2,40 +2,31 @@
 
 .header {
   box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 6px 0px;
+  background: #69b1d0;
+  left: 0;
+  position: sticky;
+  right: 0;
+  top: 0;
+  text-align: center;
 
-  &.wrapper {
-    display: flex;
-    width: 94%;
-    max-width: $max-width-app;
-    height: 4em;
-    line-height: 4em;
-    padding: 0 3%;
-    margin: 0 auto;
-  }
-
-  &.logo {
-    display: inline-block;
-    line-height: 5.1em;
-    margin-right: .5em;
-
-    .wi {
-      font-size: 2.1em;
-    }
-  }
-
-  &.brand {
-    font-size: 1.3em;
-  }
-
-  &.right-block {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: auto;
-  }
-
-  &.unit-switcher {
-    display: flex;
-    margin: 0 .3em;
-  }
 }
+
+.header__wrapper{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.sunny{
+  font-size: 3em;
+  margin-right: 6px;
+  color: rgb(255, 210, 48);
+}
+.header__brand{
+  font-size: 2em;
+  font-weight: 600;
+  color: #6d7b86;
+}
+
+
