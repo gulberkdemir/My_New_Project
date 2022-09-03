@@ -3,6 +3,7 @@ import {Observable, Subject} from "rxjs";
 import {Weather} from "./weather.model";
 import {HttpClient} from "@angular/common/http";
 import {whetherApiConfig, whetherAppConfig} from "../whether-config";
+import {GeneralserviceService} from "../shared/generalservice.service";
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,8 @@ export class WhetherService {
 
   // @ts-ignore
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private generalService: GeneralserviceService,
     // private appService: AppService,
     // private loaderService: LoaderService,
     // private helperService: HelperService,
@@ -37,8 +39,8 @@ export class WhetherService {
   adjustResponseData(object: Weather, response: any){
     object.updateAt = new Date();
     object.humidity = response.main.humidity;
-    object.sunset = response.sys.sunset;
-    object.sunrise =response.sys.sunrise;
+    object.sunset = this.generalService.GetUtcDate(response.sys.sunset);
+    object.sunrise =this.generalService.GetUtcDate(response.sys.sunrise);
     object.windSpeed = response.wind.speed;
     object.description = response.weather[0].description;
     object.pressure = response.main.pressure;

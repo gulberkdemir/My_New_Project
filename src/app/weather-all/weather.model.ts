@@ -5,8 +5,8 @@ export class Weather {
   humidity: number;
   pressure: number;
   description: string;
-  sunrise: number;
-  sunset: number;
+  sunrise: string;
+  sunset: string;
   windSpeed: number;
   constructor(
     updateAt: Date,
@@ -15,8 +15,8 @@ export class Weather {
     humidity: number,
     pressure: number,
     description: string,
-    sunrise: number,
-    sunset: number,
+    sunrise: string,
+    sunset: string,
     windDirection: string,
     windSpeed: number
   ) {

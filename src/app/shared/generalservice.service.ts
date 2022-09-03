@@ -16,6 +16,11 @@ export class GeneralserviceService {
     return new Date(num).toLocaleTimeString();
   }
 
+  GetUtcDate(num: number){
+    var date = new Date(num * 1000);
+    return date.toUTCString();
+  }
+
   GetCurrent(){
     return new Date();
   }
