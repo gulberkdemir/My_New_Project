@@ -26,7 +26,7 @@ export class WeatherSearchBarComponent{
       this.searchService.searchResult.next(city);
 
 
-      // this.router.navigate([`/${city}`]);
+      this.router.navigate([`/${city}`]);
       this.searchText = '';
     }
   }

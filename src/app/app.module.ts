@@ -12,6 +12,9 @@ import {FormsModule} from "@angular/forms";
 import { WeatherAllComponent } from './weather-all/weather-all.component';
 import { CityBoxComponent } from './weather-all/city-box/city-box.component';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { AppRoutingModule } from './app-routing.module';
+import { NotFoundComponentComponent } from './not-found-component/not-found-component.component';
+import { ErrorComponentComponent } from './error-component/error-component.component';
 
 
 // @ts-ignore
@@ -24,7 +27,9 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     WeatherHeaderComponent,
     WeatherSearchBarComponent,
     WeatherAllComponent,
-    CityBoxComponent
+    CityBoxComponent,
+    NotFoundComponentComponent,
+    ErrorComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +38,8 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     MatPaginatorModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
