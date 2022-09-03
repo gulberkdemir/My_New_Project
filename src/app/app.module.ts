@@ -9,6 +9,9 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WeatherSearchBarComponent } from './weather-search-bar/weather-search-bar.component';
 import {FormsModule} from "@angular/forms";
+import { WeatherAllComponent } from './weather-all/weather-all.component';
+import { CityBoxComponent } from './weather-all/city-box/city-box.component';
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 
 // @ts-ignore
@@ -19,7 +22,9 @@ import {FormsModule} from "@angular/forms";
   declarations: [
     AppComponent,
     WeatherHeaderComponent,
-    WeatherSearchBarComponent
+    WeatherSearchBarComponent,
+    WeatherAllComponent,
+    CityBoxComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +32,8 @@ import {FormsModule} from "@angular/forms";
     MatFormFieldModule,
     MatPaginatorModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
