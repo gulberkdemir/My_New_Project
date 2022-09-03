@@ -25,7 +25,9 @@ export class WeatherAllComponent implements OnInit, OnDestroy {
     private weatherService: WhetherService,
     private generalservice: GeneralserviceService
     // private route: ActivatedRoute
-  ) { }
+  ) {
+
+  }
 
   ngOnInit(): void {
     // this.route.data.subscribe(
