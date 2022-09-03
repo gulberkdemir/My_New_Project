@@ -4,6 +4,7 @@ import {Weather} from "./weather.model";
 import {interval, Subscription, switchMap, take, timer} from "rxjs";
 import {SearchService} from "../weather-search-bar/search.service";
 import {GeneralserviceService} from "../shared/generalservice.service";
+import {whetherApiConfig} from "../whether-config";
 
 
 @Component({
@@ -54,11 +55,20 @@ export class WeatherAllComponent implements OnInit, OnDestroy {
     this.citySubscription = this.searchService.searchResult.subscribe(
       res => {this.cityResult = res;
         if(this.cityResult !== null && this.cityResult !== undefined){
-          this._weatherSubscription = this.weatherService.getWeatherWithCity(this.cityResult).subscribe(weather => {
-            this.weather = weather;
-            this.weatherService.adjustResponseData(this.weatherModelObject,this.weather);
+          // this._weatherSubscription = this.weatherService.getWeatherWithCity(this.cityResult).subscribe(weather => {
+          //   this.weather = weather;
+          //   this.weatherService.adjustResponseData(this.weatherModelObject,this.weather);
+          //
+          // });
+          timer(0, whetherApiConfig.updateInterval.weather).pipe(
+            switchMap(() =>  this.weatherService.getWeatherWithCity(this.cityResult))
+          ).subscribe(weather =>
+            {
+              this.weather = weather;
+              this.weatherService.adjustResponseData(this.weatherModelObject,this.weather);
 
-          });
+            }
+          );
         }
       }
     )
