@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { WeatherHeaderComponent } from './weather-header/weather-header.component';
 import {MatIconModule} from "@angular/material/icon";
@@ -15,6 +14,7 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 import { NotFoundComponentComponent } from './not-found-component/not-found-component.component';
 import { ErrorComponentComponent } from './error-component/error-component.component';
+import { ForecastComponent } from './weather-all/forecast/forecast.component';
 
 
 // @ts-ignore
@@ -29,7 +29,8 @@ import { ErrorComponentComponent } from './error-component/error-component.compo
     WeatherAllComponent,
     CityBoxComponent,
     NotFoundComponentComponent,
-    ErrorComponentComponent
+    ErrorComponentComponent,
+    ForecastComponent
   ],
   imports: [
     BrowserModule,

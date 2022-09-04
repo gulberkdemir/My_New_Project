@@ -5,7 +5,7 @@ import {BehaviorSubject, Subject} from "rxjs";
   providedIn: 'root'
 })
 export class SearchService {
-  // @ts-ignore
+
   searchResult = new Subject<string>();
 
   constructor() { }

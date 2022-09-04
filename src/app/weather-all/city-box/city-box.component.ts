@@ -23,7 +23,6 @@ export class CityBoxComponent implements OnInit, OnDestroy {
     const source = interval(1000);
     // @ts-ignore
     this.clocktimeSubscripction = source.subscribe(val => this.date = this.generalService.GetCurrent());
-    console.log('ffff', this.weather);
     this.measurementUnits = whetherApiConfig.measurementUnits['metric'].temperature;
   }
 
