@@ -86,11 +86,11 @@ export class WeatherAllComponent implements OnInit, OnDestroy {
 
   findEstimations() {
     timer(0, whetherApiConfig.updateInterval.weather).pipe(
-      switchMap(() => this.weatherService.getForecastWithCity(this.cityResult, 16))
+      switchMap(() => this.weatherService.getForecastWithCity(this.cityResult, 7))
     ).subscribe(forecast => {
         this.forecastList = forecast;
         this.allForecasts = [];
-        for (let i = 0; i < 16; i++) {
+        for (let i = 0; i < 7; i++) {
           let obj = {} as Forecast;
           obj.description = forecast.list[i].weather[0].description;
           obj.currentDay = false

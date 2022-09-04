@@ -1,26 +1,33 @@
 <div *ngIf="cityName !== undefined" class="city-card">
   <h2 class="city-card__header">Get the today's forecast for your city!</h2>
-  <div class="city-card__box">
+  <div class="city-card__box" *ngIf="finalEstimationArray.length > 0">
+    <div class="city-card__forecasts">
+      <div class="forecast" *ngIf="finalEstimationArray.length > 0">
+        <h2 class="forecast__header">Forecast for {{finalEstimationArray.length}} days</h2>
+        <ul class="forecast__list forecast__list--first-week">
+       <div *ngFor="let estimation  of finalEstimationArray">
+         <li class="forecast-item">
+           <div class="forecast-item__date" *ngIf="!estimation.currentDay">{{estimation.date }}</div>
+<!--           <div class="forecast-item__sky-state">-->
+<!--             <span [attr.class]="iconClassname"></span>-->
+<!--           </div>-->
+           <div class="forecast-item__temperature forecast-item__temperature--day">
+    <span class="forecast-item__temperature-data" data-deg="°" >
+      {{estimation.temperatureDay}}
+    </span>
+           </div>
+           <div class="forecast-item__temperature forecast-item__temperature--night">
+    <span class="forecast-item__temperature-data" data-deg="°" >
+      {{estimation.temperatureNight}}
+    </span>
+           </div>
+           <div class="forecast-item__natural-phenomen">{{estimation.description}}</div>
+         </li>
+       </div>
+        </ul>
+      </div>
+
+    </div>
   </div>
 </div>
 
-<!--<div class="forecast" *ngIf="firstWeekForecast?.length > 0">-->
-<!--  <h2 class="forecast__header">Forecast for {{forecastDays}} days</h2>-->
-<!--  <ul class="forecast__list forecast__list&#45;&#45;first-week">-->
-<!--    <app-forecast-item *ngFor="let dayOfFirstWeek of firstWeekForecast" [currentDay]="dayOfFirstWeek.currentDay" [date]="dayOfFirstWeek.date"-->
-<!--                       [temperatureDay]="dayOfFirstWeek.temperatureDay" [temperatureNight]="dayOfFirstWeek.temperatureNight" [iconClassname]="dayOfFirstWeek.iconClassname"-->
-<!--                       [measureOfTemp]="measureOfTemp" [description]="dayOfFirstWeek.description">-->
-<!--    </app-forecast-item>-->
-<!--  </ul>-->
-<!--  <ul [ngClass]="{'forecast__list&#45;&#45;collapsed': !isSecondWeekForecastListShow}" class="forecast__list forecast__list&#45;&#45;second-week">-->
-<!--    <app-forecast-item *ngFor="let dayOfSecondWeek of secondWeekForecast" [date]="dayOfSecondWeek.date" [temperatureDay]="dayOfSecondWeek.temperatureDay"-->
-<!--                       [temperatureNight]="dayOfSecondWeek.temperatureNight" [iconClassname]="dayOfSecondWeek.iconClassname" [measureOfTemp]="measureOfTemp"-->
-<!--                       [description]="dayOfSecondWeek.description">-->
-<!--    </app-forecast-item>-->
-<!--  </ul>-->
-<!--  <div class="forecast__action" *ngIf="secondWeekForecast?.length > 0">-->
-<!--    <button class="btn forecast__action-btn" (click)="toggleSecondWeekForecastList()">-->
-<!--      {{ !isSecondWeekForecastListShow ? 'More' : 'Less'}}-->
-<!--    </button>-->
-<!--  </div>-->
-<!--</div>-->
