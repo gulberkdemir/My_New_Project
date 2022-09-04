@@ -5,7 +5,7 @@
       <div class="forecast" *ngIf="finalEstimationArray.length > 0">
         <h2 class="forecast__header">Forecast for {{finalEstimationArray.length}} days</h2>
         <ul class="forecast__list forecast__list--first-week">
-       <div *ngFor="let estimation  of finalEstimationArray">
+       <div class="loop" *ngFor="let estimation  of finalEstimationArray">
          <li class="forecast-item">
            <div class="forecast-item__date" *ngIf="!estimation.currentDay">{{estimation.date }}</div>
 <!--           <div class="forecast-item__sky-state">-->
