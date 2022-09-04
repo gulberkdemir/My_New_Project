@@ -25,3 +25,11 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+Gulberk's note: 
+I applied this thing
+
+1- Getting weather situation,
+2- Routing
+3- LocalTime is updated every seconds(Because we have to show real time to users but api results work in every five minutes
+ 
