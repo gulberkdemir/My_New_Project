@@ -1,6 +1,6 @@
 export interface Forecast{
   currentDay: boolean;
-  date: number;
+  date: Date;
   temperatureDay: number;
   temperatureNight: number;
   description: string;

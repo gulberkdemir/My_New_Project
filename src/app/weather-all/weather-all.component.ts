@@ -94,7 +94,7 @@ export class WeatherAllComponent implements OnInit, OnDestroy {
           let obj = {} as Forecast;
           obj.description = forecast.list[i].weather[0].description;
           obj.currentDay = false
-          obj.date = forecast.list[i].dt
+          obj.date = forecast.list[i].dt;
           obj.temperatureNight = forecast.list[i].temp.eve;
           obj.temperatureDay = forecast.list[i].temp.day;
           this.allForecasts.push(obj);
