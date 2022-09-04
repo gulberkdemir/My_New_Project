@@ -32,7 +32,6 @@ export class WhetherService {
   getForecastWithCity(city: string, cnt: number): Observable<any>{
     return this.http.get<any>(`${whetherApiConfig.host}/forecast/daily?q=${city}&appid=${whetherApiConfig.appId}&units=${this.unitSystem}&cnt=${cnt}`)
 
-
   }
 
   adjustResponseData(object: Weather, response: any){

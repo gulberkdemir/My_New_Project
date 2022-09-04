@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {Weather} from "../weather.model";
 import {ForecastService} from "./forecast.service";
 import {Forecast} from "../forecast.model";
@@ -8,7 +8,7 @@ import {Forecast} from "../forecast.model";
   templateUrl: './forecast.component.html',
   styleUrls: ['./forecast.component.scss']
 })
-export class ForecastComponent implements OnInit {
+export class ForecastComponent implements OnInit, OnDestroy {
 
   @Input() forecastList :any[];
   @Input() unitSystem: string;
@@ -20,6 +20,10 @@ export class ForecastComponent implements OnInit {
   ngOnInit(): void {
     this.forecastService.forecast.subscribe(res=>
     {this.finalEstimationArray = res;});
+  }
+
+  ngOnDestroy(): void{
+    this.forecastService.forecast.unsubscribe();
   }
 
 }
